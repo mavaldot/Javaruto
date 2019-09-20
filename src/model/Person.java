@@ -10,8 +10,8 @@ public class Person implements Comparable<Person>, Comparator<Person> {
 	private int power;
 	private Technique tech;
 	
-	private Character prev;
-	private Character next;
+	private Person prev;
+	private Person next;
 	
 	public Person(String name, String personality, String creationDate, int power) {
 
@@ -19,10 +19,6 @@ public class Person implements Comparable<Person>, Comparator<Person> {
 		this.personality = personality;
 		this.creationDate = creationDate;
 		this.power = power;
-		
-		this.tech = null;
-		this.prev = null;
-		this.next = null;
 	}
 	
 	public String getName() {
@@ -55,17 +51,23 @@ public class Person implements Comparable<Person>, Comparator<Person> {
 	public void setTech(Technique tech) {
 		this.tech = tech;
 	}
-	public Character getPrev() {
+	public Person getPrev() {
 		return prev;
 	}
-	public void setPrev(Character prev) {
+	public void setPrev(Person prev) {
 		this.prev = prev;
 	}
-	public Character getNext() {
+	public Person getNext() {
 		return next;
 	}
-	public void setNext(Character next) {
+	public void setNext(Person next) {
 		this.next = next;
+	}
+	
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", personality=" + personality + ", creationDate=" + creationDate + ", power="
+				+ power + "]";
 	}
 
 	@Override

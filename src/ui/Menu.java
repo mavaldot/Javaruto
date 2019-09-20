@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 import model.Japan;
 
+import model.Clan;
+import model.Person;
+
 public class Menu {
 
 	private Scanner s;
@@ -18,21 +21,77 @@ public class Menu {
 		
 		boolean running = true;
 		
+		Clan c1 = new Clan("CLAN UCHIHA");
+		p(c1.listPersons());
+		
+		Person p1 = new Person("JOHAN", "Jf", "heyh", 1);
+		
+		c1.addPerson(p1);
+		p(c1.listPersons());
+		
+		Person p2 = new Person("NAHOJ", "FDFD", "fdg", 12);
+		c1.addPerson(p2);
+		
+		Person p3 = new Person("FDSF", "FD", "F", 5);
+		
+		c1.addPerson(p3);
+		
+		p(c1.listPersons());
+		
+		c1.sortByName();
+		
+		p(c1.listPersons());
+		
 		while (running) {
 			p("WELCOME TO THE WORLD OF NARUTO");
 			
 			p("Please choose an option:");
-			p("");
+			p("1. Create a new clan");
+			p("2. Show clan list");
+			p("3. Update a clan");
+			p("4. Delete a clan");
+			p("5. Display the clan menu");
+			p("6. Exit");
 			
-			int choice = askInt(1,5);
+			int choice = askInt(1,6);
 			p(choice);
+			
+			switch (choice) {
+			
+			case 1:
+				break;
+				
+			case 2:
+				
+				break;
+				
+			case 3:
+				
+				break;
+				
+			case 4:
+				
+				break;
+				
+			case 5:
+				
+				break;
+				
+			case 6: running = false;
+				break;
+				
+			default:
+					
+				break;
+			
+			}
 		}
 
 	}
 	
-	//prints an object s of type T on the screen
-	public <T> void p(T s) {
-		System.out.println(s);
+	//prints an object t of type T on the screen
+	public <T> void p(T t) {
+		System.out.println(t);
 	}
 	
 	public int askInt() {
