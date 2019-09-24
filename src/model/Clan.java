@@ -1,14 +1,23 @@
 package model;
 
+import java.io.Serializable;
+import java.util.Comparator;
 
-
-public class Clan {
+public class Clan implements Comparator<Clan>, Serializable {
 
 	private String name;
 	private Person first;
 	
 	public Clan(String nam) {
 		name = nam;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 	public Person getFirst() {
@@ -18,6 +27,12 @@ public class Clan {
 	public void setFirst(Person p) {
 		first = p;
 	}
+	
+	public String showInfo() {
+		String info = name;
+		return info;
+	}
+	
 	
 	public boolean addPerson(Person p) {
 		
@@ -137,6 +152,32 @@ public class Clan {
 		p1.setNext(next);
 	}
 	
+	public void change(Person p1, Person p2) {
+		
+		if(p1.getNext().equals(p2))
+			swap(p1,p2);
+		else if(p2.getNext().equals(p1))
+			swap(p2,p1);
+		else {
+			
+			Person prevP1 = p1.getPrev();
+			Person nextP1 = p1.getNext();
+
+			p1.setPrev(p2.getPrev());
+			p1.setNext(p2.getNext());
+			p2.setPrev(prevP1);
+			p2.setNext(nextP1);
+			
+			if (p1.equals(first))
+				first = p2;	
+			else if (p2.equals(first))
+				first = p1;
+			
+		}
+		
+	}
+	
+	
 	public void sortByName() {
 		
 		Person actual = first;
@@ -154,12 +195,17 @@ public class Clan {
 				else {
 					actual = next;
 					next = next.getNext();
-				}
-				
-				
-			}
-			
-		}
+				}	
+			}	
+		}	
+	}
+
+	@Override
+	public int compare(Clan c1, Clan c2) {
+		
+		int ret = c1.getName().compareToIgnoreCase(c2.getName());
+		
+		return ret;
 		
 	}
 	

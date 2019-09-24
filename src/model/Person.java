@@ -2,7 +2,7 @@ package model;
 
 import java.util.Comparator;
 
-public class Person implements Comparable<Person>, Comparator<Person> {
+public class Person implements Comparable<Person> {
 
 	private String name;
 	private String personality;
@@ -68,13 +68,6 @@ public class Person implements Comparable<Person>, Comparator<Person> {
 	public String toString() {
 		return "Person [name=" + name + ", personality=" + personality + ", creationDate=" + creationDate + ", power="
 				+ power + "]";
-	}
-
-	@Override
-	public int compare(Person p1, Person p2) {
-
-		int ret = p1.getPower() - p2.getPower();
-		return ret;
 	}
 
 	@Override
