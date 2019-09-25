@@ -179,6 +179,7 @@ public class Menu {
 			
 			case 1:
 				
+				
 				break;
 				
 			case 2:
@@ -301,6 +302,27 @@ public class Menu {
 		System.out.println(msg);
 		String ret = s.nextLine();
 		return ret;
+	}
+	
+	public String askDate(String str) {
+		
+		int year = askInt("Please enter the year " + str, 1000, 3000);
+		int month = askInt("Please enter the month " + str, 1, 12);
+		int day = askInt("Please enter the day " + str, 1, 31);
+		
+		String date = "";
+		
+		if (month < 10)
+			date = year + "/" + "0" + month;
+		else 
+			date = year + "/" + month;
+		
+		if (day < 10)
+			date += "/" + "0" + day;
+		else
+			date += "/" + day;
+		
+		return date;
 	}
 	
 }

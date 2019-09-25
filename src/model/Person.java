@@ -77,6 +77,39 @@ public class Person implements Comparable<Person> {
 		return ret;
 	}
 	
+	public void swap(Technique t1, Technique t2) {
+		Technique next = t2.getNext();
+		
+		if (t1.equals(tech))
+			tech = t1;	
+
+		t1.setNext(t2);
+		t1.setNext(next);
+	}
+	
+	
+	public void sortByName() {
+		
+		Technique actual = tech;
+		
+		if (actual != null) {
+			
+			Technique next = actual.getNext();
+			
+			while (next != null) {
+				
+				if (actual.compareTo(next) > 0) {
+					swap(actual, next);
+					next = actual.getNext();
+				}
+				else {
+					actual = next;
+					next = next.getNext();
+				}	
+			}	
+		}	
+	}
+	
 	
 	
 }

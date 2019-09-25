@@ -188,6 +188,9 @@ public class Japan {
 		return ret;
 	}
 	
+	public void addPerson(String name, String personality, String creationDate, int power) {
+		selectedClan.addPerson(new Person(name, personality, creationDate, power));
+	}
 	
 	
 }

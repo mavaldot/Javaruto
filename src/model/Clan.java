@@ -73,38 +73,6 @@ public class Clan implements Comparator<Clan>, Serializable {
 		
 	}
 	
-//	public boolean addPerson(Person p) {
-//		
-//		boolean success = false;
-//		
-//		if (!findName(p.getName())) {
-//
-//			if (first == null) {
-//				first = p;
-//				success = true;
-//			} 
-//			else {
-//				
-//				Person next = first.getNext();
-//				
-//				while(!success) {
-//
-//					if (next == null) {
-//						insertAfter(first, p);
-//					}
-//					else {
-//						
-//					}
-//					
-//				}
-//				
-//
-//			}
-//		}
-//		
-//
-//	}
-	
 	public boolean findName(String name) {
 		
 		boolean found = false;
